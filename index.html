@@ -10,33 +10,49 @@
 </head>
 
 <body>
-  <h1>MQTT</h1>
-  <p>My MQTT Web App</p><br><br>
-  <div class="row register">
-    <br>
-    <div class="col-md-4"></div>
-    <div class="col-md-4">
-      <div class="card ">
-        <div class="card-header">
-          Server
+  <center>
+    <h1>MQTT</h1>
+    <p>My MQTT Web App</p>
+  </center>
+  <br><br>
+  <div class="container-fluid">
+    <div class="row">
+      <br>
+      <div class="col-sm-4 bg-info">
+        <div><br><br>
+          <center><b>BROKER</b></center>
         </div><br>
-        <div class="card-body">
-          <div class="form-group">
-            <label>Address:</label>
-            <input type="text" class="form-control" id="address" value="ws://broker.hivemq.com:8000/mqtt">
-          </div>
-          <center>
-            <button class="btn btn-success connect" tpye="button">Connect</button>
-            <button class="btn btn-danger disconnect" tpye="button">Disconnect</button>
-          </center>
-          <p id="status"></p>
+        <div class="form-group">
+          <label>Address:</label>
+          <input type="text" class="form-control" id="address" value="ws://broker.hivemq.com:8000/mqtt">
         </div>
+        <center>
+          <button class="btn btn-success connect" tpye="button">Connect</button>
+          <button class="btn btn-danger disconnect" tpye="button">Disconnect</button>
+        </center>
+        <br><br>
+        <div>
+          STATUS<br>
+          <input type="text" class="form-control" id="status">
+        </div>
+        <br><br>
       </div>
-    </div>
-  </div>
-  <div id="container-tbl">
-    <div class="card">
-      <div class="card-body">
+      <div class="col-sm-4 bg-success">
+        <br><br>
+        <div>
+          <center><b>PUBLISH</b></center>
+        </div><br>
+        <div class="form-group">
+          <label>Topic:</label>
+          <input type="text" class="form-control" id="ptopic">
+        </div>
+        <div class="form-group">
+          <label>Payload:</label>
+          <input type="text" class="form-control" id="pload">
+        </div>
+        <center>
+          <button class="btn btn-success publish" type="button">Publish</button>
+        </center>
         <table class="table">
           <thead>
             <tr>
@@ -45,57 +61,49 @@
               <th>Time stamp</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="tbody2">
           </tbody>
         </table>
+        <br><br>
       </div>
-    </div>
-  </div>
-  <div class="row register">
-    <br>
-    <div class="col-md-4"></div>
-    <div class="col-md-4">
-      <div class="card ">
-        <div class="card-header">
-          Publish
+      <div class="col-sm-4 bg-warning">
+        <br><br>
+        <div>
+          <center><b>SUBSCRIBE</b></center>
         </div><br>
-        <div class="card-body">
-          <div class="form-group">
-            <label>Topic:</label>
-            <input type="text" class="form-control" id="ptopic">
-          </div>
-          <div class="form-group">
-            <label>Payload:</label>
-            <input type="text" class="form-control" id="pload">
-          </div>
-          <center>
-            <button class="btn btn-success publish" tpye="button">Publish</button>
-          </center>
+        <div class="form-group">
+          <label>Topic:</label>
+          <input type="text" class="form-control" id="stopic">
         </div>
+        <center>
+          <button class="btn btn-success subscribe" tpye="button">Subscribe</button>
+          <button class="btn btn-danger unsubscribe" tpye="button" >Unsubscribe</button>
+        </center>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Topic</th>
+              <th>Time stamp</th>
+            </tr>
+          </thead>
+          <tbody id="tbody3">
+          </tbody>
+        </table>
+        <br><br>
       </div>
     </div>
   </div>
-  <div class="row register">
-    <br>
-    <div class="col-md-4"></div>
-    <div class="col-md-4">
-      <div class="card ">
-        <div class="card-header">
-          Subscribe
-        </div><br>
-        <div class="card-body">
-          <div class="form-group">
-            <label>Topic:</label>
-            <input type="text" class="form-control" id="stopic">
-          </div>
-          <center>
-            <button class="btn btn-success subscribe" tpye="button">Subscribe</button>
-            <button class="btn btn-danger unsubscribe" tpye="button">Unsubscribe</button>
-          </center>
-        </div>
-      </div>
-    </div>
-  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Topic</th>
+        <th>Payload</th>
+        <th>Time stamp</th>
+      </tr>
+    </thead>
+    <tbody id="tbody1">
+    </tbody>
+  </table>
 </body>
 <script src="scripts/browserMqtt.js"></script>
 <script src="scripts/controller.js"></script>
